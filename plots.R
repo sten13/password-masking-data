@@ -1,6 +1,7 @@
 ggplot(data=fpws, 
        aes(x=time_enter, y=diffs, colour=Masked)) + 
-  geom_point(alpha=1/4) + 
+  geom_point(alpha=1/4) +
+  geom_jitter() +
   scale_y_continuous(breaks=2*c(1:5), labels=2*c(1:5))
 ggsave("MaskedVsUnmasked.pdf", width=4, height=3)
 
@@ -11,7 +12,8 @@ ggsave("MaskedVsUnmaskedBox.pdf", width=4, height=3)
 
 ggplot(data=fpws, 
        aes(x=time_enter, y=diffs, colour=Masked)) + 
-  geom_point(alpha=1/2) + 
+  geom_point(alpha=1/4) +
+  geom_jitter() +
   facet_grid(`PW Type` ~ OS)
 ggsave("OSVsTypeVsMasked.pdf", width=4, height=3)
 
@@ -22,7 +24,8 @@ ggsave("TimeVsType.pdf", width=4, height=3)
 
 ggplot(data=fpws, 
        aes(x=time_enter, y=diffs, colour=`PW Type`)) + 
-  geom_point(alpha=1/2)
+  geom_point(alpha=1/4) +
+  geom_jitter()
 ggsave("DiffsVsTimeVsType.pdf", width=4, height=3)
 
 # ggplot(data=fpws, 
